@@ -1,3 +1,13 @@
+<script setup>
+import { storeToRefs } from 'pinia'
+import { useTestimonialStore } from '@/stores/testimonial'
+
+const { testimonials } = storeToRefs(useTestimonialStore())
+const { fetchTestimonials } = useTestimonialStore()
+
+fetchTestimonials()
+</script>
+
 <template>
     <div class="testimonial_section">
         <div class="container">
@@ -5,36 +15,15 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
+                            <div v-for="testimonial in testimonials" :key="testimonial.id"
+                                :class="{ 'carousel-item': true, 'active': testimonials[0] === testimonial }">
                                 <div class="testimonial_content">
                                     <i class="fa-solid fa-quote-left"></i>
-                                    <p class="testimonial_paragraph">“Quisuam est, qui dolorem ipsum quia dolor sit
-                                        amet, consec velit sed ruia non nuam
-                                        eius modi tempora incidunt ut magnam aliruam auzerat voluptatem autenim rea
-                                        minima
-                                        exercita ionem ullam corporis suscitnis officiis debitis aut rerum
-                                        necessitatibus saepe
-                                        evenietut aer voluptates”</p>
-                                    <figure><img src="@/assets/images/testimonial_image.png" alt="" class="img-fluid">
+                                    <p class="testimonial_paragraph">{{ testimonial.testimonial }}</p>
+                                    <figure><img :src="testimonial.image_url" alt="" class="testimonial-avatar">
                                     </figure>
-                                    <p class="testimonial_person_name">Himala Joerge</p>
-                                    <span>Happy client</span>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="testimonial_content">
-                                    <i class="fa-solid fa-quote-left"></i>
-                                    <p class="testimonial_paragraph">“Quisuam est, qui dolorem ipsum quia dolor sit
-                                        amet, consec velit sed ruia non nuam
-                                        eius modi tempora incidunt ut magnam aliruam auzerat voluptatem autenim rea
-                                        minima
-                                        exercita ionem ullam corporis suscitnis officiis debitis aut rerum
-                                        necessitatibus saepe
-                                        evenietut aer voluptates”</p>
-                                    <figure><img src="@/assets/images/testimonial_image.png" alt="" class="img-fluid">
-                                    </figure>
-                                    <p class="testimonial_person_name">Himala Joerge</p>
-                                    <span>Happy client</span>
+                                    <p class="testimonial_person_name">{{ testimonial.name }}</p>
+                                    <span>{{ testimonial.job }}</span>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useGoalStore } from '@/stores/goal'
 
-const { goals, loading } = storeToRefs(useGoalStore())
+const { goals } = storeToRefs(useGoalStore())
 const { fetchGoals } = useGoalStore()
 
 fetchGoals()
