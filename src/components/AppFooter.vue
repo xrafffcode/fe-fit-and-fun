@@ -41,19 +41,13 @@
                             <h4>Quick Links</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="./index.html">Home</a>
+                                    <router-link to="/">Home</router-link>
                                 </li>
                                 <li>
-                                    <a href="./about.html">About Us</a>
+                                    <router-link to="/about">About Us</router-link>
                                 </li>
                                 <li>
-                                    <a href="./services.html">Services</a>
-                                </li>
-                                <li>
-                                    <a href="./team.html">Team</a>
-                                </li>
-                                <li>
-                                    <a href="./contact.html">Contact Us</a>
+                                    <router-link to="/contact">Contact Us</router-link>
                                 </li>
                             </ul>
                         </div>
@@ -85,7 +79,7 @@
             </div>
         </div>
         <div class="footer_shape right_shape">
-            <figure class="mb-0"><img src="./assets/images/footer_shape.png" alt="" class="img-fluid"></figure>
+            <figure class="mb-0"><img src="@/assets/images/footer_shape.png" alt="" class="img-fluid"></figure>
         </div>
     </section>
 </template>
