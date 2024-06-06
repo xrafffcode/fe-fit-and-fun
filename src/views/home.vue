@@ -5,6 +5,18 @@ import AppAbout from '@/components/AppAbout.vue'
 import AppChoseUs from '@/components/AppChoseUs.vue'
 import AppPricing from '@/components/AppPricing.vue'
 import AppTestimonial from '@/components/AppTestimonial.vue'
+
+document.title = 'Fit & Fun Studio - Malang’s Studio Workout'
+document.querySelector('meta[name="description"]').setAttribute('content', 'Fit & Fun is a fitness studio that offers a variety of classes to help you reach your fitness goals. We offer a variety of classes to help you reach your fitness goals.')
+document.querySelector('meta[name="keywords"]').setAttribute('content', 'fit and fun, fitness studio, malang, workout, fitness goals, classes, member, join member, fit and fun studio, malang’s studio workout')
+document.querySelector('meta[property="og:title"]').setAttribute('content', 'Fit & Fun Studio - Malang’s Studio Workout')
+document.querySelector('meta[property="og:description"]').setAttribute('content', 'Fit & Fun is a fitness studio that offers a variety of classes to help you reach your fitness goals. We offer a variety of classes to help you reach your fitness goals.')
+document.querySelector('meta[property="og:url"]').setAttribute('content', 'https://fitandfun.studio/')
+document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://fitandfun.studio/assets/images/banner_right_image.png')
+document.querySelector('meta[property="og:image:width"]').setAttribute('content', '1200')
+document.querySelector('meta[property="og:image:height"]').setAttribute('content', '630')
+document.querySelector('meta[property="og:type"]').setAttribute('content', 'website')
+
 </script>
 
 <template>

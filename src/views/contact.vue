@@ -8,6 +8,17 @@ const submitForm = (e) => {
     const url = `https://api.whatsapp.com/send/?phone=628816009615&text=Hi%20Fit%20and%20Fun%21%20Perkenalkan%20saya%20${formData.get('firstname')}%20${formData.get('lastname')}%2C%20saya%20mau%20tanya%20tentang%20Fit%20and%20Fun.%20${formData.get('msg')}`;
     window.open(url, '_blank');
 }
+
+document.title = 'Fit & Fun Studio - Contact Us'
+document.querySelector('meta[name="description"]').setAttribute('content', 'Contact Fit & Fun Studio for more information about our classes, membership, and more.')
+document.querySelector('meta[name="keywords"]').setAttribute('content', 'fit and fun, fitness studio, malang, workout, fitness goals, classes, member, join member, fit and fun studio, malang’s studio workout')
+document.querySelector('meta[property="og:title"]').setAttribute('content', 'Fit & Fun Studio - Contact Us')
+document.querySelector('meta[property="og:description"]').setAttribute('content', 'Contact Fit & Fun Studio for more information about our classes, membership, and more.')
+document.querySelector('meta[property="og:url"]').setAttribute('content', 'https://fitandfun.studio/contact')
+document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://fitandfun.studio/assets/images/banner_right_image.png')
+document.querySelector('meta[property="og:image:width"]').setAttribute('content', '1200')
+document.querySelector('meta[property="og:image:height"]').setAttribute('content', '630')
+document.querySelector('meta[property="og:type"]').setAttribute('content', 'website')
 </script>
 
 <template>
