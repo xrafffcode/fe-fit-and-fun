@@ -21,13 +21,10 @@
                             We are Here to Help You
                         </h2>
                         <p>
-                            Fit & Fun is a health and wellness center that offers a variety of programs to help you
+                            Fit & Fun is a Studio Workout at Malang, Indonesia. We are here to help you to get your body, 
+                            mind and soul in shape. We provide the best workout plans, diet plans and yoga classes to
+                            make you feel better and healthier.
                         </p>
-                        <div class="btn_wrapper">
-                            <a href="./about.html" class="text-decoration-none get_started_btn">
-                                Learn More
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>

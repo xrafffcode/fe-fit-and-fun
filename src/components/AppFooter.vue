@@ -5,9 +5,10 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 d-lg-block d-none">
                         <div class="footer_logo">
-                            <a href="./index.html" class="text-decoration-none">
-                                <figure class="mb-0"><img src="./assets/images/footer_logo.png" alt=""
-                                        class="img-fluid"></figure>
+                            <a href="/" class="text-decoration-none">
+                                <figure class="mb-0">
+                                    <img src="@/assets/images/logo.png" alt="logo" class="img-fluid">
+                                </figure>
                             </a>
                         </div>
                     </div>
@@ -16,15 +17,22 @@
                             <h4>About Us</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <p>Quisuam est rui dolorem ipsum quia dolor sit amet, consectetur adipisci velit
-                                        sea...</p>
+                                    <p>
+                                        Fit & Fun is a Studio Workout at Malang, Indonesia. We are here to help you to get your body, 
+                            mind and soul in shape.
+                                    </p>
                                 </li>
-                                <li class="icons"><a href="#"><i class="fa-brands fa-facebook-f"
-                                            aria-hidden="true"></i></a></li>
-                                <li class="icons"><a href="#"><i class="fa-brands fa-twitter"
-                                            aria-hidden="true"></i></a></li>
-                                <li class="icons"><a href="#"><i class="fa-brands fa-linkedin-in mr-0"
-                                            aria-hidden="true"></i></a></li>
+                                <li class="icons">
+                                    <a href="https://www.instagram.com/fitandfun.studio/" target="_blank"><i
+                                            class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+
+                                </li>
+                                <li class="icons">
+                                    <a href="https://www.tiktok.com/@fitandfun.studio" target="_blank"><i
+                                            class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -55,16 +63,15 @@
                             <h4>Contact Info</h4>
                             <ul class="list-unstyled">
                                 <li class="contact_icons">
-                                    <i class="fa-solid fa-phone"></i>
-                                    <a href="tel:+61383766284" class="text-decoration-none">+61 3 8376 6284</a>
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <a href="https://api.whatsapp.com/send/?phone=628816009615&text=hi+minfits%21+saya+mau+tanya+tentang+fit+and+fun" target="_blank" class="text-decoration-none">+62 881-600-9615</a>
                                 </li>
-                                <li class="contact_icons">
-                                    <i class="fa-sharp fa-solid fa-envelope"></i>
-                                    <a href="mailto:Info@yogastic.om" class="text-decoration-none">Info@yogastic.om</a>
-                                </li>
+                                
                                 <li class="mb-0">
                                     <i class="fa-solid fa-location-dot location"></i>
-                                    <span>21 King Street Melbourne, 3000, Australia</span>
+                                    <span>
+                                        Jl. Soekarno Hatta No.A-1, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur 65142
+                                    </span>
                                 </li>
                             </ul>
                         </div>

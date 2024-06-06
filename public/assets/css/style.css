@@ -87,7 +87,7 @@ p{
 /* Home Page Header Section Style */
 
 .banner-section-outer{
-    background-color: #d6bea4;
+    background-image: url('../images/banner_section_background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -188,7 +188,7 @@ p{
 .navbar-nav .nav-item .contact_us{
     background-color: var(--e-global-color-soft-orange);
     color: var(--e-global-color-accent) !important;
-    padding: 20px 50px;
+    padding: 16px 30px;
     text-align: center;
     display: inline-block;
     border-radius: 30px 0px 30px 0px;
@@ -449,15 +449,21 @@ p{
     line-height: 24px;
     font-weight: 400;
 }
-.services_box_content .services_box_lower_portion .btn_wrapper i{
+.services_box_content .services_box_lower_portion .btn_wrapper a{
     color: var(--e-global-color-accent);
     background-color: var(--e-global-color-soft-orange);
-    font-size: 26px;
+    font-size: 16px;
     line-height: 26px;
     padding: 12px 15px;
     border-radius: 18px 0 18px 0;
     transition: all ease-in-out 0.3s;
 }
+
+.services_section .services_box_content:hover .services_box_lower_portion .btn_wrapper a{
+    color: var(--e-global-color-white);
+    background-color: var(--e-global-color-secondary);
+}
+
 .services_box_content:hover{
     transform: translateY(-10px);
 }
@@ -641,7 +647,7 @@ p{
     content: "\f058";
     height: 76px;
     width: 76px;
-    background-color: var(--e-global-color-soft-orange);
+    background-color: var(--e-global-color-secondary);
     position: absolute;
     border-radius: 100%;
     z-index: 1;
@@ -676,7 +682,7 @@ p{
     content: "\f058";
     height: 76px;
     width: 76px;
-    background-color: var(--e-global-color-soft-orange);
+    background-color: var(--e-global-color-secondary);
     position: absolute;
     border-radius: 100%;
     z-index: 1;

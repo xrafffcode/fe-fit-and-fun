@@ -4,30 +4,36 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="our_specialties_heading_content">
-                    <h5>Our Specialties</h5>
-                    <h2>Why Choose Us</h2>
-                    <p>Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores nostrum exercitationem ullam corporis suscipit laboriosam</p>
+                    <h2>Our Exercise</h2>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="specialties_content_wrapper">
                     <div class="specialties_content s1">
-                        <p class="specialties_name">Vinyasa Yoga</p>
-                        <p class="specialties_paragraph">Dolor reaellendus temorius maiores alia</p>
+                        <p class="specialties_name">Cardio Workout</p>
+                        <p class="specialties_paragraph">
+                            Increase your heart rate and burn more calories.
+                        </p>
                     </div>
                     <div class="specialties_content s2">
-                        <p class="specialties_name">Slow Yoga</p>
-                        <p class="specialties_paragraph">Rabore et dolore maga eiusmo rute aliua</p>
+                        <p class="specialties_name">Circuit Training</p>
+                        <p class="specialties_paragraph">
+                            Combine strength and cardio for a full-body workout.
+                        </p>
                     </div>
                     <div class="specialties_content s3">
-                        <p class="specialties_name">Intuitive Yoga</p>
-                        <p class="specialties_paragraph">Earum rerum hic tene sapiente delectus</p>
+                        <p class="specialties_name">Dumble Press</p>
+                        <p class="specialties_paragraph">
+                            Strengthen your upper body and improve your posture.
+                        </p>
                     </div>
                     <div class="specialties_content s4">
-                        <p class="specialties_name">Aroma Yoga</p>
-                        <p class="specialties_paragraph">Neque orro quisquam est raui dolorem</p>
+                        <p class="specialties_name">Workout</p>
+                        <p class="specialties_paragraph">
+                            Increase your heart rate and burn more calories.
+                        </p>
                     </div>
                     <figure class="specialties_left_line mb-0">
                         <img src="@/assets/images/specialties_left_line.png" alt="" class="img-fluid">
@@ -42,20 +48,28 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="specialties_content_wrapper">
                     <div class="specialties_content specialties_content2 s5">
-                        <p class="specialties_name">Kundalini Yoga</p>
-                        <p class="specialties_paragraph">Dolor reaellendus temorius maiores alia</p>
+                        <p class="specialties_name">Boxing</p>
+                        <p class="specialties_paragraph">
+                            Improve your strength and agility with boxing.
+                        </p>
                     </div>
                     <div class="specialties_content specialties_content2 s6">
-                        <p class="specialties_name">Bikram Yoga</p>
-                        <p class="specialties_paragraph">Rabore et dolore mae eiusmo rute aliua</p>
+                        <p class="specialties_name">Tabata</p>
+                        <p class="specialties_paragraph">
+                            Increase your heart rate and burn more calories.
+                        </p>
                     </div>
                     <div class="specialties_content specialties_content2 s7">
-                        <p class="specialties_name">Mindfulness Training</p>
-                        <p class="specialties_paragraph">Earum rerum hic tene sapiente delectus</p>
+                        <p class="specialties_name">HIIT</p>
+                        <p class="specialties_paragraph">
+                            Increase your heart rate and burn more calories.
+                        </p>
                     </div>
                     <div class="specialties_content specialties_content2 s8">
-                        <p class="specialties_name">Workout Routines</p>
-                        <p class="specialties_paragraph">Neque orro quisquam est raui dolorem</p>
+                        <p class="specialties_name">Booty Pump</p>
+                        <p class="specialties_paragraph">
+                            Strengthen your lower body and improve your posture.
+                        </p>
                     </div>
                     <figure class="specialties_right_line mb-0">
                         <img src="@/assets/images/specialties_right_line.png" alt="" class="img-fluid">

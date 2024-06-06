@@ -32,9 +32,11 @@ fetchGoals()
                         <div class="services_box_lower_portion">
                             <h3>{{ goal.name }}</h3>
                             <p>{{ goal.description }}</p>
-                            <div class="btn_wrapper">
-                                <router-link to="" class="text-decoration-none"><i
-                                        class="fa-solid fa-arrow-right" aria-hidden="true"></i></router-link>
+                            <div class="btn_wrapper mt-4">
+                                <a :href="`https://api.whatsapp.com/send/?phone=628816009615&text=hi+minfits%21+saya+mau+join+program+${goal.name}`"
+                                    target="_blank" class="text-decoration-none">
+                                    Join Program Now
+                                </a>
                             </div>
                         </div>
                     </div>
