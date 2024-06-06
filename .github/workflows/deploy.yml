@@ -8,7 +8,7 @@ jobs:
     name: Deploying to Github 
     runs-on: ubuntu-latest
     env:
-      VITE_APP_NAME: "Fit And Fun"
+      VITE_APP_NAME: "Fit And Fun Studio"
       VITE_API_ENDPOINT: "https://api.fitandfunstudio.com/api/v1"
     steps:
       - uses: actions/checkout@v2
