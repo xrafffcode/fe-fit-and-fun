@@ -27,9 +27,7 @@ export const useAuthStore = defineStore({
 
         this.success = 'Login successful'
 
-        this.checkAuth()
-        
-        window.location.reload()
+        router.push({ name: 'dashboard' })
       } catch (error) {
         this.error = handleError(error)
       } finally {
@@ -57,7 +55,7 @@ export const useAuthStore = defineStore({
         this.user = null
         this.success = null
 
-        router.push({ name: 'login' })
+        router.push({ name: 'home' })
       } finally {
         this.loading = false
       }

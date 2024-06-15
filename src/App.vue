@@ -5,6 +5,6 @@ import AppFooter from '@/components/AppFooter.vue'
 
 <template>
   <RouterView />
-  
+
   <AppFooter />
 </template>

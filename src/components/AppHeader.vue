@@ -1,33 +1,36 @@
 <script setup>
 import { useAuthStore } from '@/stores/auth'
+import { useWebConfigurationStore } from '@/stores/web-configuration'
 import { storeToRefs } from 'pinia'
 import { RouterLink } from 'vue-router'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeMount } from 'vue'
 
-const { loading, error, user } = storeToRefs(useAuthStore())
-const { login } = useAuthStore()
+const { loading, error, user, success } = storeToRefs(useAuthStore())
+const { login, checkAuth } = useAuthStore()
+
+const { webConfiguration } = storeToRefs(useWebConfigurationStore())
+
+const { fetchWebConfiguration } = useWebConfigurationStore()
 
 const showLoginModal = ref(false)
 
 const form = ref({
-  email: '',
-  password: '',
+    email: '',
+    password: '',
 })
 
 const onSubmit = () => {
     login(form.value)
 
-    if (!error.value) {
+    if (success.value) {
         showLoginModal.value = false
     }
-
-    form.value = {
-        email: '',
-        password: '',
-    }
-
-    error.value = null
 }
+
+onBeforeMount(() => {
+    checkAuth()
+    fetchWebConfiguration()
+})
 
 onMounted(() => {
     error.value = null
@@ -40,11 +43,11 @@ onMounted(() => {
         <div class="main_header">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
-                    <a class="navbar-brand" href="./index.html">
+                    <router-link to="/" class="navbar-brand">
                         <figure class="mb-0">
-                            <img src="@/assets/images/logo.png" alt="Fit & Fun">
+                            <img :src="webConfiguration?.logo_url" alt="" class="img-fluid">
                         </figure>
-                    </a>
+                    </router-link>
 
                     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -72,10 +75,14 @@ onMounted(() => {
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                {{ user?.profile?.name }}
                                 <a class="nav-link contact_us" href="#" @click="showLoginModal = true" v-if="!user">
                                     Login
                                 </a>
+
+                                <router-link to="/dashboard" class="contact_us text-dark text-decoration-none" v-else>
+                                    <i class="fas fa-user"></i>
+                                    {{ user.profile.name }}
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -99,11 +106,13 @@ onMounted(() => {
                     </div>
                     <div class="login_modal_form">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Email" v-model="form.email" :class="{ 'is-invalid': error && error.email }">
-                    
+                            <input type="text" class="form-control" placeholder="Email" v-model="form.email"
+                                :class="{ 'is-invalid': error && error.email }">
+
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" v-model="form.password" :class="{ 'is-invalid': error && error.password }">    
+                            <input type="password" class="form-control" placeholder="Password" v-model="form.password"
+                                :class="{ 'is-invalid': error && error.password }">
                         </div>
                         <div class="form-group">
                             <a href="#" class="login_modal_btn" @click="onSubmit">
