@@ -29,6 +29,7 @@ const onSubmit = () => {
 
 onBeforeMount(() => {
     checkAuth()
+
     fetchWebConfiguration()
 })
 

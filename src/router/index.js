@@ -8,17 +8,20 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: home
+      component: home,
+      meta: { requiresAuth: false }
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('@/views/about.vue')
+      component: () => import('@/views/about.vue'),
+      meta: { requiresAuth: false }
     },
     {
       path: '/contact',
       name: 'contact',
-      component: () => import('@/views/contact.vue')
+      component: () => import('@/views/contact.vue'),
+      meta: { requiresAuth: false }
     },
     {
       path: '/dashboard',
@@ -41,6 +44,7 @@ const router = createRouter({
   ]
 })
 
+
 router.beforeEach(async (to, from, next) => {
   const authStore = useAuthStore()
 
@@ -52,27 +56,13 @@ router.beforeEach(async (to, from, next) => {
         await authStore.checkAuth()
       }
 
-      const userPermissions = authStore.user?.permissions || []
-
-      if (to.meta.permissions) {
-        const hasPermission = to.meta.permissions.every(permission => userPermissions.includes(permission))
-        if (!hasPermission) {
-          next({ name: '403' })
-
-          return
-        }
-      }
-
       next()
     } catch (error) {
-      next({ name: 'login' })
+      next({ name: 'home' })
     }
-  } else if (to.meta.requiresUnauth && authStore.token) {
-    next({ name: 'dashboard' })
   } else {
     next()
   }
 })
-
 
 export default router

@@ -46,15 +46,18 @@ export const useAuthStore = defineStore({
         this.error = null
         this.success = 'Logout successful'
 
-        router.push({ name: 'login' })
+        router.push({ name: 'home' })
       } catch (error) {
+        const toRouteRequiresAuth = router.currentRoute.value.meta.requiresAuth
 
         localStorage.removeItem('token')
 
         this.user = null
         this.success = null
 
-        router.push({ name: 'home' })
+        if (toRouteRequiresAuth) {
+          router.push({ name: 'home' })
+        }
       } finally {
         this.loading = false
       }
@@ -72,8 +75,9 @@ export const useAuthStore = defineStore({
         if (error.response && error.response.status === 401) {
           this.logout()
         }
+      } finally {
+        this.loading = false
       }
-      this.loading = false
     },
   },
 })
