@@ -1,16 +1,94 @@
 <script setup>
+import { ref } from 'vue';
 import AppHeader from '@/components/AppHeader.vue';
-import { useAuthStore } from '@/stores/auth'
-import { useWebConfigurationStore } from '@/stores/web-configuration'
-import { storeToRefs } from 'pinia'
+import { useAuthStore } from '@/stores/auth';
+import { useWebConfigurationStore } from '@/stores/web-configuration';
+import { useMemberProgressStore } from '@/stores/member-progress';
+import { storeToRefs } from 'pinia';
 
-const { user } = storeToRefs(useAuthStore())
+const loadingChart = ref(true);
 
-const { webConfiguration } = storeToRefs(useWebConfigurationStore())
+const { user } = storeToRefs(useAuthStore());
 
-const { fetchWebConfiguration } = useWebConfigurationStore()
+const { webConfiguration } = storeToRefs(useWebConfigurationStore());
+const { fetchWebConfiguration } = useWebConfigurationStore();
+fetchWebConfiguration();
 
-fetchWebConfiguration()
+const { memberProgress } = storeToRefs(useMemberProgressStore());
+const { fetchMemberProgress } = useMemberProgressStore();
+
+const options = ref({
+    chart: {
+        type: 'line',
+        height: 350,
+    },
+    stroke: {
+        curve: 'smooth'
+    },
+    markers: {
+        size: 0
+    },
+    dataLabels: {
+        enabled: false
+    },
+    tooltip: {
+        y: {
+            formatter: function (val, { seriesIndex }) {
+                switch (seriesIndex) {
+                    case 0: return `${val} kg`;
+                    case 1: return `${val} %`;
+                    case 2: return `${val} kg`;
+                    case 3: return `${val}`;
+                    case 4: return `${val}`;
+                    default: return val;
+                }
+            }
+        }
+    },
+    series: [],
+    xaxis: {
+        categories: []
+    }
+});
+
+const fetchMemberProgressData = async () => {
+    loadingChart.value = true;
+
+    await fetchMemberProgress(filter.value);
+
+    options.value.series = [
+        {
+            name: 'Weight',
+            data: memberProgress.value.map(data => parseFloat(data.weight))
+        },
+        {
+            name: 'Body Fat',
+            data: memberProgress.value.map(data => parseFloat(data.body_fat))
+        },
+        {
+            name: 'Muscle Mass',
+            data: memberProgress.value.map(data => parseFloat(data.muscle_mass))
+        },
+        {
+            name: 'Cell Age',
+            data: memberProgress.value.map(data => parseFloat(data.cell_age))
+        },
+        {
+            name: 'Fat',
+            data: memberProgress.value.map(data => parseFloat(data.fat))
+        }
+    ];
+    options.value.xaxis.categories = memberProgress.value.map(data => data.date);
+
+    loadingChart.value = false;
+};
+
+const filter = ref({
+    start_date: new Date(new Date().getFullYear(), new Date().getMonth(), 2).toISOString().slice(0, 10),
+    end_date: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1).toISOString().slice(0, 10),
+})
+
+fetchMemberProgressData();
 </script>
 
 <template>
@@ -32,8 +110,52 @@ fetchWebConfiguration()
             </div>
         </section>
     </div>
+    <div class="container ">
+        <div class="menu-section">
+            <div class="menu-section-mini-header">
+                Your Program
+            </div>
+            <div class="menu-section-plan-free">
+                {{ user?.goal?.name }}
+            </div>
+        </div>
+    </div>
 
-    <div class="container py-5">
+    <div class="container ">
+        <div class="menu-section">
+            <div class="menu-section-header">
+                Your Progress
+            </div>
+
+            <div class="row mb-3 p-2">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" class="form-control" id="start_date" v-model="filter.start_date">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="end_date">End Date</label>
+                        <input type="date" class="form-control" id="end_date" v-model="filter.end_date">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <button class="btn-filter float-right" @click="fetchMemberProgressData">Filter</button>
+                </div>
+            </div>
+
+            <div class="menu-section-plan-free" v-if="loadingChart">
+                Loading
+            </div>
+
+            <div class="menu-section-plan-free" v-else>
+                <apexchart type="line" height="350" :options="options" :series="options.series"></apexchart>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ">
         <div class="menu-section">
             <div class="menu-section-mini-header">
                 Your plan
@@ -74,12 +196,10 @@ fetchWebConfiguration()
 
             <img :src="webConfiguration?.schedule_image_url" alt="" class="img-schedule">
 
-           
             <a href="./attendance" class="btn-schedule">
                 Attendance
             </a>
         </div>
-
 
         <div class="menu-section">
             <div class="menu-section-header">
@@ -204,5 +324,19 @@ fetchWebConfiguration()
         width: 100%;
         height: auto;
     }
+}
+
+.btn-filter {
+    background-color: white;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
 }
 </style>
