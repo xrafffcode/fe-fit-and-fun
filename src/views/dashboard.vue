@@ -12,10 +12,11 @@ const { user } = storeToRefs(useAuthStore());
 
 const { webConfiguration } = storeToRefs(useWebConfigurationStore());
 const { fetchWebConfiguration } = useWebConfigurationStore();
+
 fetchWebConfiguration();
 
 const { memberProgress } = storeToRefs(useMemberProgressStore());
-const { fetchMemberProgress } = useMemberProgressStore();
+const { fetchMemberProgress, createMemberProgress } = useMemberProgressStore();
 
 const options = ref({
     chart: {
@@ -89,6 +90,36 @@ const filter = ref({
 })
 
 fetchMemberProgressData();
+
+const addProgressModal = ref(false);
+
+const addProgress = ref({
+    date: new Date().toISOString().slice(0, 10),
+    weight: '',
+    body_fat: '',
+    muscle_mass: '',
+    cell_age: '',
+    fat: '',
+    note: '',
+});
+
+const handleAddMemberProgress = async () => {
+    await createMemberProgress(addProgress.value);
+
+    addProgressModal.value = false;
+
+    addProgress.value = {
+        date: new Date().toISOString().slice(0, 10),
+        weight: '',
+        body_fat: '',
+        muscle_mass: '',
+        cell_age: '',
+        fat: '',
+        note: '',
+    };
+
+    fetchMemberProgressData();
+}
 </script>
 
 <template>
@@ -127,7 +158,7 @@ fetchMemberProgressData();
                 Your Progress
             </div>
 
-            <div class="row mb-3 p-2">
+            <div class="row mb-3 p-2 align-items-center">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <label for="start_date">Start Date</label>
@@ -152,6 +183,12 @@ fetchMemberProgressData();
             <div class="menu-section-plan-free" v-else>
                 <apexchart type="line" height="350" :options="options" :series="options.series"></apexchart>
             </div>
+
+            <!-- add your progress -->
+            <button class="btn-add-progress" @click="addProgressModal = true">
+                <i class="fa-solid fa-plus"></i>
+                Add Progress
+            </button>
         </div>
     </div>
 
@@ -209,6 +246,61 @@ fetchMemberProgressData();
                 <span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>Logout
                 <span class="chevron">›</span>
             </a>
+        </div>
+    </div>
+
+
+    <div class="progress-modal" v-if="addProgressModal">
+        <div class="progress-modal-content">
+            <div class="progress-modal-header">
+                Add Progress
+            </div>
+
+            <div class="progress-modal-body">
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" class="form-control" id="date" v-model="addProgress.date">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Weight</label>
+                    <input type="number" class="form-control" id="weight" v-model="addProgress.weight" placeholder="kg">
+                </div>
+
+                <div class="form-group">
+                    <label for="bodyfat">Bodyfat</label>
+                    <input type="number" class="form-control" id="bodyfat" v-model="addProgress.body_fat" placeholder="%">
+                </div>
+
+                <div class="form-group">
+                    <label for="muscle">Muscle Mass</label>
+                    <input type="number" class="form-control" id="muscle" v-model="addProgress.muscle_mass" placeholder="kg">
+                </div>
+
+                <div class="form-group">
+                    <label for="cell">Cell Age</label>
+                    <input type="number" class="form-control" id="cell" v-model="addProgress.cell_age" placeholder="numbers only">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fat">Fat </label>
+                    <input type="number" class="form-control" id="fat" v-model="addProgress.fat" placeholder="numbers only">
+                </div>
+
+                <div class="form-group">
+                    <label for="note">Note</label>
+                    <textarea class="form-control" id="note" v-model="addProgress.note"></textarea>
+                </div>
+            </div>
+
+            <div class="progress-modal-footer">
+                <button class="btn-cancel" @click="addProgressModal = false">
+                    Cancel
+                </button>
+                <button class="btn-save" @click="handleAddMemberProgress()">
+                    Save
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -338,5 +430,95 @@ fetchMemberProgressData();
     text-align: center;
     text-decoration: none;
     height: 100%;
+}
+
+.btn-add-progress {
+    display: block;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-add-progress:hover {
+    background-color: #ffffff;
+    color: #2d2d2d;
+}
+
+.progress-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .progress-modal-content {
+        max-width: 300px;
+    }
+}
+
+.progress-modal-close {
+    text-align: right;
+}
+
+.progress-modal-close a {
+    font-size: 20px;
+    color: #eae2d3;
+}
+
+.progress-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.btn-cancel {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.btn-save {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
 }
 </style>

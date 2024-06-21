@@ -1,13 +1,18 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue';
 import { storeToRefs } from 'pinia'
-import { onBeforeMount,  } from 'vue'
+import { onBeforeMount, ref  } from 'vue'
 import { useAttendanceStore } from '@/stores/attendance'
 
 const { attendances, loading, success } = storeToRefs(useAttendanceStore())
 const { fetchAttendances } = useAttendanceStore()
 
 fetchAttendances()
+
+const filters = ref({
+    start_date: new Date(new Date().getFullYear(), new Date().getMonth(), 2).toISOString().slice(0, 10),
+    end_date: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 1).toISOString().slice(0, 10),
+})
 
 onBeforeMount(() => {
     document.title = 'Attendance History'
@@ -43,10 +48,29 @@ onBeforeMount(() => {
                 Attendace History
             </div>
 
+            <div class="row mb-3 p-2 align-items-center">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="date" class="form-control" id="start_date" v-model="filters.start_date">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="end_date">End Date</label>
+                        <input type="date" class="form-control" id="end_date" v-model="filters.end_date">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <button class="btn-filter float-right" @click="fetchAttendances(filters)">Filter</button>
+                </div>
+            </div>
+
             <div class="table-responsive" v-if="!loading">
-                <table class="table table-hover table-striped">
+                <table class="table ">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Date</th>
                             <th>Program</th>
                             <th>Shake</th>
@@ -57,6 +81,7 @@ onBeforeMount(() => {
                     </thead>
                     <tbody>
                         <tr v-for="attendance in attendances" :key="attendance.id">
+                            <td>{{ attendances.indexOf(attendance) + 1 }}</td>
                             <td>{{ attendance.program.time }}</td>
                             <td>{{ attendance.program.name }}</td>
                             <td>{{ attendance.shake.name }}</td>
@@ -190,5 +215,46 @@ onBeforeMount(() => {
 
 .table-responsive {
     overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    white-space: nowrap;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.table .table {
+    background-color: #fff;
+}
+
+.btn-filter {
+    background-color: white;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    height: 100%;
 }
 </style>

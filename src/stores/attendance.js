@@ -13,11 +13,11 @@ export const useAttendanceStore = defineStore({
     success: null,
   }),
   actions: {
-    async fetchAttendances() {
+    async fetchAttendances(params) {
       try {
         this.loading = true
 
-        const response = await axiosInstance.get('/attendance')
+        const response = await axiosInstance.get('/attendance', { params })
 
         response.data.data.forEach(attendance => {
           attendance.program.time = format(new Date(attendance.program.time), 'dd MMMM yyyy HH:mm')

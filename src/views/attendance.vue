@@ -54,7 +54,7 @@ onBeforeMount(() => {
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="banner-section-content">
-                            <h1>Attendace</h1>
+                            <h1>Attendance</h1>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ onBeforeMount(() => {
                         <label for="program_id">Exercise</label>
                         <select class="form-control" v-model="attendance.program_id">
                             <option v-for="program in programs" :key="program.id" :value="program.id">
-                                {{ program.name }} ({{ program.time }}) ({{ program.slot }}) ({{ program.coach.name }})
+                                {{ program.title }}
                             </option>
                         </select>
                     </div>
