@@ -28,10 +28,12 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
             <div class="icon_content d-table-cell align-middle">
                 <ul class="list-unstyled p-0 m-0">
                     <li>
-                        <a href="https://www.instagram.com/fitandfun.studio/" target="_blank"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/fitandfun.studio/" target="_blank"><i
+                                class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                     </li>
                     <li>
-                        <a href="https://www.tiktok.com/@fitandfun.studio" target="_blank"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+                        <a href="https://www.tiktok.com/@fitandfun.studio" target="_blank"><i
+                                class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
                     </li>
                 </ul>
             </div>
@@ -46,13 +48,16 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                                 Malang’s Studio Workout
                             </h5>
                             <h1>
-                                Get Fit & Fun
+                                Fit & Fun Studio
                             </h1>
                             <p>
-                                Fit & Fun is a fitness studio that offers a variety of <br> classes to help you reach your fitness goals. We offer a variety of classes to help you reach your fitness goals.
+                                Fit & Fun is a fitness studio that offers a variety of <br> classes to help you reach
+                                your fitness goals. We offer a variety of classes to help you reach your fitness goals.
                             </p>
                             <div class="btn_wrapper">
-                                <a class="text-decoration-none getstarted_btn" href="https://api.whatsapp.com/send/?phone=628816009615&text=hi+minfits%21+saya+mau+join+member+fit+and+fun" target="_blank">
+                                <a class="text-decoration-none getstarted_btn"
+                                    href="https://api.whatsapp.com/send/?phone=628816009615&text=hi+minfits%21+saya+mau+join+member+fit+and+fun"
+                                    target="_blank">
                                     Join Member Now
                                 </a>
                             </div>

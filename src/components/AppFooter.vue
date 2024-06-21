@@ -18,8 +18,9 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <p>
-                                        Fit & Fun is a Studio Workout at Malang, Indonesia. We are here to help you to get your body, 
-                            mind and soul in shape.
+                                        Fit & Fun is a Studio Workout at Malang, Indonesia. We are here to help you to
+                                        get your body,
+                                        mind and soul in shape.
                                     </p>
                                 </li>
                                 <li class="icons">
@@ -47,7 +48,7 @@
                                     <router-link to="/about">About Us</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/contact">Contact Us</router-link>
+                                    <router-link to="/trial">Get Trial</router-link>
                                 </li>
                             </ul>
                         </div>
@@ -58,13 +59,15 @@
                             <ul class="list-unstyled">
                                 <li class="contact_icons">
                                     <i class="fa-brands fa-whatsapp"></i>
-                                    <a href="https://api.whatsapp.com/send/?phone=628816009615&text=hi+minfits%21+saya+mau+tanya+tentang+fit+and+fun" target="_blank" class="text-decoration-none">+62 881-600-9615</a>
+                                    <a href="https://api.whatsapp.com/send/?phone=628816009615&text=hi+minfits%21+saya+mau+tanya+tentang+fit+and+fun"
+                                        target="_blank" class="text-decoration-none">+62 881-600-9615</a>
                                 </li>
-                                
+
                                 <li class="mb-0">
                                     <i class="fa-solid fa-location-dot location"></i>
                                     <span>
-                                        Jl. Soekarno Hatta No.A-1, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur 65142
+                                        Jl. Soekarno Hatta No.A-6, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa Timur
+                                        65142
                                     </span>
                                 </li>
                             </ul>

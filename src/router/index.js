@@ -18,9 +18,9 @@ const router = createRouter({
       meta: { requiresAuth: false }
     },
     {
-      path: '/contact',
-      name: 'contact',
-      component: () => import('@/views/contact.vue'),
+      path: '/trial',
+      name: 'trial',
+      component: () => import('@/views/trial.vue'),
       meta: { requiresAuth: false }
     },
     {

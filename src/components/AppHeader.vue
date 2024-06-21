@@ -71,8 +71,8 @@ onMounted(() => {
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link to="/contact" class="nav-link">
-                                    Contact Us
+                                <router-link to="/trial" class="nav-link">
+                                    Get Trial
                                 </router-link>
                             </li>
                             <li class="nav-item">

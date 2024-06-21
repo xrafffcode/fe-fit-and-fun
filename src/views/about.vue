@@ -110,8 +110,13 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="mission_content">
                             <h2>Our Mission</h2>
-                            <p>Quis autem vel eum iure reprehenderit qui in eao voluptate velit esse quam nihil
-                                molestiae consequatur vel illum.</p>
+                            <p>
+                                Guided by our passion, Fit and Fun Studio Malang is dedicated to empowering women
+                                through personalized body transformation programs tailored for bulking and weight loss,
+                                supported by age-appropriate body composition standards. We provide mentoring,
+                                personalized meal plans, and post-workout protein shakes to motivate and support women
+                                in reaching their health goals in a welcoming environment.
+                            </p>
 
                         </div>
                     </div>
@@ -142,8 +147,9 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="vision_content">
                             <h2>Our Vision</h2>
-                            <p>Ruis autem vel eum iure reprehenderit qui in eao voluptate velit esse quam nihil
-                                molestiae consequatur vel illum.</p>
+                            <p>Empowering women in Malang to achieve their health and fitness goals, Fit and Fun Studio
+                                Malang envisions a community of strong, confident, and healthy individuals on their body
+                                transformation journey.</p>
 
                         </div>
                     </div>
@@ -159,7 +165,10 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
     <div class="contact_map_section">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.57317214602!2d112.6292810751044!3d-7.939566179079348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629000b845fd3%3A0x7fedc381541453c6!2sFit%20N%20Fun%20Studio%20Malang!5e0!3m2!1sid!2sid!4v1717695232991!5m2!1sid!2sid" width="1920" height="728" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.57317214602!2d112.6292810751044!3d-7.939566179079348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd629000b845fd3%3A0x7fedc381541453c6!2sFit%20N%20Fun%20Studio%20Malang!5e0!3m2!1sid!2sid!4v1717695232991!5m2!1sid!2sid"
+                    width="1920" height="728" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

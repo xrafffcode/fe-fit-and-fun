@@ -1,20 +1,52 @@
 <script setup>
 import AppHeader from '@/components/AppHeader.vue';
+import { storeToRefs } from 'pinia';
+import { useTrialApplicantStore } from '@/stores/trial-applicant';
+import { useCoachStore } from '@/stores/coach';
+import { useGoalStore } from '@/stores/goal';
+import { ref } from 'vue';
 
-const submitForm = (e) => {
-    e.preventDefault();
-    const form = document.getElementById('contactpage');
-    const formData = new FormData(form);
-    const url = `https://api.whatsapp.com/send/?phone=628816009615&text=Hi%20Fit%20and%20Fun%21%20Perkenalkan%20saya%20${formData.get('firstname')}%20${formData.get('lastname')}%2C%20saya%20mau%20tanya%20tentang%20Fit%20and%20Fun.%20${formData.get('msg')}`;
-    window.open(url, '_blank');
+const { loading, error, success } = storeToRefs(useTrialApplicantStore())
+const { createTrialApplicant } = useTrialApplicantStore()
+
+const { coaches } = storeToRefs(useCoachStore())
+const { fetchCoaches } = useCoachStore()
+
+const { goals } = storeToRefs(useGoalStore())
+const { fetchGoals } = useGoalStore()
+
+fetchCoaches()
+fetchGoals()
+
+const form = ref({
+    name: '',
+    phone: '',
+    coach_id: 0,
+    tea: 0,
+    goal_id: 0
+})
+
+const handleSubmit = async () => {
+    await createTrialApplicant(form.value)
+
+    if (success.value) {
+        form.value = {
+            name: '',
+            phone: '',
+            coach_id: 0,
+            tea: 0,
+            goal_id: 0
+        }
+    }
 }
 
-document.title = 'Fit & Fun Studio - Contact Us'
-document.querySelector('meta[name="description"]').setAttribute('content', 'Contact Fit & Fun Studio for more information about our classes, membership, and more.')
+
+document.title = 'Fit & Fun Studio - Get Trial'
+document.querySelector('meta[name="description"]').setAttribute('content', 'Get Trial at Fit & Fun Studio. Contact us for more information about our classes, membership, and more.')
 document.querySelector('meta[name="keywords"]').setAttribute('content', 'fit and fun, fitness studio, malang, workout, fitness goals, classes, member, join member, fit and fun studio, malang’s studio workout')
 document.querySelector('meta[property="og:title"]').setAttribute('content', 'Fit & Fun Studio - Contact Us')
-document.querySelector('meta[property="og:description"]').setAttribute('content', 'Contact Fit & Fun Studio for more information about our classes, membership, and more.')
-document.querySelector('meta[property="og:url"]').setAttribute('content', 'https://fitandfun.studio/contact')
+document.querySelector('meta[property="og:description"]').setAttribute('content', 'Get Trial at Fit & Fun Studio. Contact us for more information about our classes, membership, and more.')
+document.querySelector('meta[property="og:url"]').setAttribute('content', 'https://fitandfun.studio/trial')
 document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://fitandfun.studio/assets/images/banner_right_image.png')
 document.querySelector('meta[property="og:image:width"]').setAttribute('content', '1200')
 document.querySelector('meta[property="og:image:height"]').setAttribute('content', '630')
@@ -30,13 +62,13 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="banner-section-content">
-                            <h1>Contact Us</h1>
+                            <h1>Get Trial</h1>
                             <p>
                                 We are here to help you to get your body, mind and soul in shape.
                             </p>
                             <div class="btn_wrapper">
                                 <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right"
-                                    aria-hidden="true"></i><span class="sub_span"> Contact Us</span>
+                                    aria-hidden="true"></i><span class="sub_span">Get Trial</span>
                             </div>
                         </div>
                     </div>
@@ -64,36 +96,81 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="message_content">
-                        <h5>Get in Touch.</h5>
-                        <h2>Send us a Message</h2>
-                        <p>Guia voluptas sit aspernatur aut odit aut fugit, sed quia exercitationem ullam corporis
-                            laboriosam</p>
+                        <h5>Get Trial.</h5>
+                        <h2>Fill out the form below</h2>
+                        <p>
+                            Fill out the form below and we will get back to you as soon as possible.
+                        </p>
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div v-if="success" class="alert alert-success  fade show" role="alert"
+                                    style="width: 90%;">
+                                    Your trial application has been submitted, we will get
+                                    back to you as soon as possible.
+                                </div>
+                            </div>
+                        </div>
+
                         <form id="contactpage" @submit.prevent="submitForm">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group mb-0">
-                                        <input type="text" name="firstname" id="fname" class="form-control"
-                                            placeholder="First Name">
+                                        <input type="text" class="form-control" placeholder="Name" v-model="form.name"
+                                            required>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group mb-0">
-                                        <input type="text" name="lastname" id="lname" class="form-control form_style"
-                                            placeholder="Last Name">
+                                        <input type="text" class="form-control form_style" placeholder="Phone"
+                                            v-model="form.phone" required>
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class=" form-group mb-0">
-                                        <textarea rows="3" name="msg" id="comment" class="form-control"
-                                            placeholder="Message"></textarea>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group mb-0">
+                                        <select class="form-control" v-model="form.goal_id" required placeholder="Goal">
+                                            <option value="0">Select Program</option>
+                                            <option v-for="goal in goals" :key="goal.id" :value="goal.id">
+                                                {{ goal.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="form-group mb-0">
+                                        <select class="form-control form_style" v-model="form.coach_id" required
+                                            placeholder="Coach">
+                                            <option value="0">Select Coach</option>
+                                            <option v-for="coach in coaches" :key="coach.id" :value="coach.id">
+                                                {{ coach.name }}
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="form-group mb-0">
+                                        <select class="form-control " v-model="form.tea" required placeholder="Tea">
+                                            <option value="0">Select Tea</option>
+                                            <option v-for="tea in ['Hot', 'Cold']" :key="tea" :value="tea">
+                                                {{ tea }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
                             <div class="btn_wrapper">
-                                <button type="submit" name="get_started" id="started">
-                                    Send Message
+                                <button @click="handleSubmit" type="submit" class="btn-schedule">
+                                    Get Trial
                                 </button>
                             </div>
                         </form>
@@ -111,7 +188,7 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                                 <div class="box_wrapper">
                                     <h3>Location</h3>
                                     <p class="mb-0">
-                                        Jl. Soekarno Hatta No.A-1, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa
+                                        Jl. Soekarno Hatta No.A-6, Mojolangu, Kec. Lowokwaru, Kota Malang, Jawa
                                         Timur 65142
                                     </p>
                                 </div>
