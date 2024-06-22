@@ -229,3 +229,195 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
         </div>
     </div>
 </template>
+
+<style scoped>
+.message_content input {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    background-color: var(--e-global-color-white);
+    color: var(--e-global-color-text);
+    border-radius: 0;
+    width: 90%;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 50px rgb(0 0 0 / 5%);
+    margin-bottom: 1rem;
+}
+
+.message_content .form_style {
+    margin-left: -40px;
+}
+.message_content textarea {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    background-color: var(--e-global-color-white);
+    color: var(--e-global-color-text);
+    border-radius: 0;
+    padding: 18px 25px;
+    width: 90%;
+    outline: none;
+    resize: none;
+    height: 128px;
+    margin-bottom: 42px;
+    border: none;
+    box-shadow: 1px 1px 50px rgb(0 0 0 / 5%);
+}
+
+.message_content select {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    background-color: var(--e-global-color-white);
+    color: var(--e-global-color-text);
+    border-radius: 0;
+    width: 90%;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 50px rgb(0 0 0 / 5%);
+    margin-bottom: 1rem;
+}
+
+.message_content .form-control:focus{
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+textarea {
+    overflow: auto;
+}
+.message_content button {
+   background-color: var(--e-global-color-secondary);
+   color: var(--e-global-color-white);
+   padding: 12px 24px;
+   border-radius: 5px;
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s ease 0s;
+   border: none;
+   outline: none;
+}
+
+.message_content button:hover {
+    color: var(--e-global-color-white);
+    background-color: var(--e-global-color-primary);
+    border-color: var(--e-global-color-primary);
+    outline: none;
+}
+.message_content button:hover:before {
+	left: 0%;
+	right: auto;
+	width: 100%;
+}
+.message_content button:before {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 0px;
+	z-index: -1;
+	content: '';
+    color: var(--e-global-color-white);
+    background-color: var(--e-global-color-secondary);
+	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
+}
+
+.message_section .box_padding{
+    margin-top: 10px;
+}
+.message_section .box{
+    box-shadow: 1px 1px 50px rgb(0 0 0 / 5%);
+    width: 380px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 45px 0 45px 0;
+    background-color: var(--e-global-color-white);
+    padding: 30px 18px 40px;
+    margin-left: -30px;
+    margin-bottom: 30px;
+}
+.message_section .box .box_wrapper{
+    position: relative;
+    padding-left: 20px;
+    margin-top: -12px;
+    display: inline-block;
+    width: 74%;
+}
+.message_section .box .box_wrapper h3{
+    margin-bottom: 5px;
+    color: var(--e-global-color-primary);
+}
+.message_section .box .box_wrapper p{
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: -10px;
+    margin-bottom: 11px;
+    color: var(--e-global-color-text);
+}
+.message_section .box .box_wrapper a{
+    color: var(--e-global-color-text);
+    transition: all 0.3s ease-in-out;
+}
+.message_section .box .box_wrapper a:hover{
+    color: var(--e-global-color-soft-orange);
+}
+.message_section .box .box_image_content{
+    float: left;
+    width: 26%;
+}
+.message_section .box .box_image_content figure{
+    background-color: var(--e-global-color-secondary);
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 100px;
+    transition: all 0.3s ease-in-out;
+}
+.message_section .box:hover .box_image_content figure{
+    background-color: var(--e-global-color-soft-orange);
+}
+
+/* Contact Page Contact Map Section Style */
+
+.contact_map_section {
+    overflow: hidden;
+    margin-bottom: -10px;
+}
+
+/* Contact Page Contact Subscribe Section Style */
+
+.contact_subscribe_section{
+    margin-top: -360px;
+}
+
+/* Blog Posts Page Style */
+
+.blog-posts {
+    padding: 120px 0 130px;
+}
+.single-post .single-post-heading {
+    font-size: 30px !important;
+}
+
+@media screen and (max-width: 575px) {
+    .message_content input {
+        padding-top: 22px;
+        padding-bottom: 22px;
+        padding-left: 12px;
+        margin-bottom: 15px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .message_content select {
+        width: 100%;
+    }
+    
+}
+</style>
