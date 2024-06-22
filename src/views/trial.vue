@@ -41,11 +41,11 @@ const handleSubmit = async () => {
 }
 
 
-document.title = 'Fit & Fun Studio - Get Trial'
-document.querySelector('meta[name="description"]').setAttribute('content', 'Get Trial at Fit & Fun Studio. Contact us for more information about our classes, membership, and more.')
+document.title = 'Fit & Fun Studio - Free Trial'
+document.querySelector('meta[name="description"]').setAttribute('content', 'Free Trial at Fit & Fun Studio. Contact us for more information about our classes, membership, and more.')
 document.querySelector('meta[name="keywords"]').setAttribute('content', 'fit and fun, fitness studio, malang, workout, fitness goals, classes, member, join member, fit and fun studio, malang’s studio workout')
 document.querySelector('meta[property="og:title"]').setAttribute('content', 'Fit & Fun Studio - Contact Us')
-document.querySelector('meta[property="og:description"]').setAttribute('content', 'Get Trial at Fit & Fun Studio. Contact us for more information about our classes, membership, and more.')
+document.querySelector('meta[property="og:description"]').setAttribute('content', 'Free Trial at Fit & Fun Studio. Contact us for more information about our classes, membership, and more.')
 document.querySelector('meta[property="og:url"]').setAttribute('content', 'https://fitandfun.studio/trial')
 document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://fitandfun.studio/assets/images/banner_right_image.png')
 document.querySelector('meta[property="og:image:width"]').setAttribute('content', '1200')
@@ -62,13 +62,13 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="banner-section-content">
-                            <h1>Get Trial</h1>
+                            <h1>Free Trial</h1>
                             <p>
                                 We are here to help you to get your body, mind and soul in shape.
                             </p>
                             <div class="btn_wrapper">
                                 <span class="sub_home_span">Home </span><i class="fa-solid fa-angles-right"
-                                    aria-hidden="true"></i><span class="sub_span">Get Trial</span>
+                                    aria-hidden="true"></i><span class="sub_span">Free Trial</span>
                             </div>
                         </div>
                     </div>
@@ -96,8 +96,8 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="message_content">
-                        <h5>Get Trial.</h5>
-                        <h2>Fill out the form below</h2>
+                        <h5>Free Trial.</h5>
+                        <h2>Start Your Trial Now! </h2>
                         <p>
                             Fill out the form below and we will get back to you as soon as possible.
                         </p>
@@ -106,8 +106,8 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div v-if="success" class="alert alert-success  fade show" role="alert"
                                     style="width: 90%;">
-                                    Your trial application has been submitted, we will get
-                                    back to you as soon as possible.
+                                    Fill out the form below to begin your trial experience. We'll be in touch shortly to assist you further.
+
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
 
                             <div class="btn_wrapper">
                                 <button @click="handleSubmit" type="submit" class="btn-schedule">
-                                    Get Trial
+                                    Free Trial
                                 </button>
                             </div>
                         </form>

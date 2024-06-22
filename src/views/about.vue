@@ -111,11 +111,10 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                         <div class="mission_content">
                             <h2>Our Mission</h2>
                             <p>
-                                Guided by our passion, Fit and Fun Studio Malang is dedicated to empowering women
-                                through personalized body transformation programs tailored for bulking and weight loss,
-                                supported by age-appropriate body composition standards. We provide mentoring,
-                                personalized meal plans, and post-workout protein shakes to motivate and support women
-                                in reaching their health goals in a welcoming environment.
+                                Empowering women in Malang to achieve their health and fitness goals, Fit and Fun Studio
+                                Malang envisions a community of strong, confident, and healthy individuals on their body
+                                transformation journey.
+                    
                             </p>
 
                         </div>
@@ -147,9 +146,13 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="vision_content">
                             <h2>Our Vision</h2>
-                            <p>Empowering women in Malang to achieve their health and fitness goals, Fit and Fun Studio
-                                Malang envisions a community of strong, confident, and healthy individuals on their body
-                                transformation journey.</p>
+                            <p>
+                                Guided by our passion, Fit and Fun Studio Malang is dedicated to empowering women
+                                through personalized body transformation programs tailored for bulking and weight loss,
+                                supported by age-appropriate body composition standards. We provide mentoring,
+                                personalized meal plans, and post-workout protein shakes to motivate and support women
+                                in reaching their health goals in a welcoming environment.
+                            </p>
 
                         </div>
                     </div>

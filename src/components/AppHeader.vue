@@ -72,7 +72,7 @@ onMounted(() => {
                             </li>
                             <li class="nav-item">
                                 <router-link to="/trial" class="nav-link">
-                                    Get Trial
+                                    Free Trial
                                 </router-link>
                             </li>
                             <li class="nav-item">

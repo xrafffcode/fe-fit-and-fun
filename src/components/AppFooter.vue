@@ -48,7 +48,7 @@
                                     <router-link to="/about">About Us</router-link>
                                 </li>
                                 <li>
-                                    <router-link to="/trial">Get Trial</router-link>
+                                    <router-link to="/trial">Free Trial</router-link>
                                 </li>
                             </ul>
                         </div>
