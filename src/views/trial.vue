@@ -106,7 +106,8 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div v-if="success" class="alert alert-success  fade show" role="alert"
                                     style="width: 90%;">
-                                    Fill out the form below to begin your trial experience. We'll be in touch shortly to assist you further.
+                                    Fill out the form below to begin your trial experience. We'll be in touch shortly to
+                                    assist you further.
 
                                 </div>
                             </div>
@@ -249,6 +250,7 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
 .message_content .form_style {
     margin-left: -40px;
 }
+
 .message_content textarea {
     font-family: 'Karla', sans-serif;
     font-weight: 400;
@@ -282,24 +284,26 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
     margin-bottom: 1rem;
 }
 
-.message_content .form-control:focus{
+.message_content .form-control:focus {
     box-shadow: none;
     outline: none;
     border: none;
 }
+
 textarea {
     overflow: auto;
 }
+
 .message_content button {
-   background-color: var(--e-global-color-secondary);
-   color: var(--e-global-color-white);
-   padding: 12px 24px;
-   border-radius: 5px;
-   position: relative;
-   overflow: hidden;
-   transition: all 0.3s ease 0s;
-   border: none;
-   outline: none;
+    background-color: var(--e-global-color-secondary);
+    color: var(--e-global-color-white);
+    padding: 12px 24px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease 0s;
+    border: none;
+    outline: none;
 }
 
 .message_content button:hover {
@@ -308,29 +312,32 @@ textarea {
     border-color: var(--e-global-color-primary);
     outline: none;
 }
+
 .message_content button:hover:before {
-	left: 0%;
-	right: auto;
-	width: 100%;
-}
-.message_content button:before {
-	display: block;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	height: 100%;
-	width: 0px;
-	z-index: -1;
-	content: '';
-    color: var(--e-global-color-white);
-    background-color: var(--e-global-color-secondary);
-	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
+    left: 0%;
+    right: auto;
+    width: 100%;
 }
 
-.message_section .box_padding{
+.message_content button:before {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    color: var(--e-global-color-white);
+    background-color: var(--e-global-color-secondary);
+    transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
+}
+
+.message_section .box_padding {
     margin-top: 10px;
 }
-.message_section .box{
+
+.message_section .box {
     box-shadow: 1px 1px 50px rgb(0 0 0 / 5%);
     width: 380px;
     transition: all 0.3s ease-in-out;
@@ -340,18 +347,21 @@ textarea {
     margin-left: -30px;
     margin-bottom: 30px;
 }
-.message_section .box .box_wrapper{
+
+.message_section .box .box_wrapper {
     position: relative;
     padding-left: 20px;
     margin-top: -12px;
     display: inline-block;
     width: 74%;
 }
-.message_section .box .box_wrapper h3{
+
+.message_section .box .box_wrapper h3 {
     margin-bottom: 5px;
     color: var(--e-global-color-primary);
 }
-.message_section .box .box_wrapper p{
+
+.message_section .box .box_wrapper p {
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
@@ -359,18 +369,22 @@ textarea {
     margin-bottom: 11px;
     color: var(--e-global-color-text);
 }
-.message_section .box .box_wrapper a{
+
+.message_section .box .box_wrapper a {
     color: var(--e-global-color-text);
     transition: all 0.3s ease-in-out;
 }
-.message_section .box .box_wrapper a:hover{
+
+.message_section .box .box_wrapper a:hover {
     color: var(--e-global-color-soft-orange);
 }
-.message_section .box .box_image_content{
+
+.message_section .box .box_image_content {
     float: left;
     width: 26%;
 }
-.message_section .box .box_image_content figure{
+
+.message_section .box .box_image_content figure {
     background-color: var(--e-global-color-secondary);
     width: 90px;
     height: 90px;
@@ -379,7 +393,8 @@ textarea {
     border-radius: 100px;
     transition: all 0.3s ease-in-out;
 }
-.message_section .box:hover .box_image_content figure{
+
+.message_section .box:hover .box_image_content figure {
     background-color: var(--e-global-color-soft-orange);
 }
 
@@ -392,7 +407,7 @@ textarea {
 
 /* Contact Page Contact Subscribe Section Style */
 
-.contact_subscribe_section{
+.contact_subscribe_section {
     margin-top: -360px;
 }
 
@@ -401,6 +416,7 @@ textarea {
 .blog-posts {
     padding: 120px 0 130px;
 }
+
 .single-post .single-post-heading {
     font-size: 30px !important;
 }
@@ -413,11 +429,21 @@ textarea {
         margin-bottom: 15px;
         font-size: 14px;
         line-height: 20px;
+        width: 100%;
     }
 
     .message_content select {
         width: 100%;
     }
-    
+
+
+    .message_content .form_style {
+        margin-left: 0px;
+    }
+
+    .box{
+        width: 350px !important;
+        margin-left: 0px !important;
+    }
 }
 </style>
