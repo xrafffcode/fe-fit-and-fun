@@ -106,9 +106,7 @@ document.querySelector('meta[property="og:type"]').setAttribute('content', 'webs
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div v-if="success" class="alert alert-success  fade show" role="alert"
                                     style="width: 90%;">
-                                    Fill out the form below to begin your trial experience. We'll be in touch shortly to
-                                    assist you further.
-
+                                    Your trial application has been submitted. We will contact you shortly.
                                 </div>
                             </div>
                         </div>
